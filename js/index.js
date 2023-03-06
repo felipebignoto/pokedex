@@ -38,8 +38,13 @@ const renderPokemon = async (pokemon) => {
         else if (data.id < 808){
             pokemonImg.src = data['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_default'];
         }
-        else if(data.id < 1010){
+        else if(data.id <= 1008){
             pokemonImg.src = data['sprites']['front_default'];
+        }
+        else if(data.id <= 1010){
+            pokemonName.innerHTML = "Not found";
+            pokemonNumber.innerHTML ="";
+            pokemonImg.style.display = "none";
         }
         
     }
@@ -63,14 +68,14 @@ prev.addEventListener("click", () => {
         renderPokemon(searchPokemon);
     }
     else{
-        searchPokemon = 1010;
+        searchPokemon = 1008;
         renderPokemon(searchPokemon);
     }
     
 });
 
 next.addEventListener("click", () => {
-    if(searchPokemon < 1010){
+    if(searchPokemon < 1008){
         searchPokemon++;
         renderPokemon(searchPokemon);
     }
